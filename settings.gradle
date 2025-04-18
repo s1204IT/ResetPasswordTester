@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'LockPassword Changer'
+rootProject.name = 'ResetPassword Tester'
 include 'nougat', 'oreo'

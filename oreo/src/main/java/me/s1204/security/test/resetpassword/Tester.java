@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Base64;
 
 public class Tester extends Activity implements View.OnClickListener {
 
@@ -75,19 +76,19 @@ public class Tester extends Activity implements View.OnClickListener {
             } else if (resId == R.id.btn_setResetPasswordToken) {
                 changeLayout(R.layout.layout_setresetpasswordtoken, R.id.exec_setResetPasswordToken);
             } else if (resId == R.id.exec_setResetPasswordToken) {
-                byte[] token = getBoxText(R.id.set_token).getBytes();
+                byte[] token = Base64.getDecoder().decode(getBoxText(R.id.set_token));
                 makeText("setResetPasswordToken：" + dpm.setResetPasswordToken(admin, token));
             } else if (resId == R.id.btn_resetPasswordWithToken) {
                 changeLayout(R.layout.layout_resetpasswordwithtoken, R.id.exec_resetPasswordWithToken);
             } else if (resId == R.id.exec_resetPasswordWithToken) {
                 String password = getBoxText(R.id.password);
-                byte[] token = getBoxText(R.id.token).getBytes();
+                byte[] token = Base64.getDecoder().decode(getBoxText(R.id.token));
                 makeText("resetPasswordWithToken：" + dpm.resetPasswordWithToken(admin, password, token, 0));
             } else if (resId == R.id.btn_generateRandomPasswordToken) {
-                byte[] randToken = SecureRandom.getInstance("SHA1PRNG").generateSeed(32);
-                clip = ClipData.newPlainText("token", Arrays.toString(randToken));
+                String randToken = Base64.getEncoder().encodeToString(SecureRandom.getInstance("SHA1PRNG").generateSeed(32));
+                clip = ClipData.newPlainText("token", randToken);
                 clipboard.setPrimaryClip(clip);
-                makeText(Arrays.toString(randToken));
+                makeText(randToken);
             } else if (resId == R.id.btn_isDeviceOwnerApp) {
                 makeText("isDeviceOwnerApp：" + dpm.isDeviceOwnerApp(getPackageName()));
             } else if (resId == R.id.btn_clearDeviceOwnerApp) {

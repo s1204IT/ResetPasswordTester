@@ -2,7 +2,7 @@
 
 ## Nougat
 
-miniSdk : `8`
+miniSdk : `21`
 
 targetSdk : `25`
 
