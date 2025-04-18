@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = 'me.s1204.security.test.resetpassword'
+    compileSdk = 35
+
+    defaultConfig {
+        minSdk = 26
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+        proguardFiles += 'proguard-rules.pro'
+        multiDexEnabled = false
+    }
+
+    signingConfigs {
+        android {
+            storeFile rootProject.file('android.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        configureEach {
+            signingConfig = signingConfigs.android
+        }
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    lintOptions {
+        ignore 'Deprecated', 'DiscouragedApi', 'ProtectedPermissions', 'HardcodedText'
+    }
+}
+
+dependencies {
+}

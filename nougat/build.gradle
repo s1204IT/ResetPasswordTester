@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = 'me.s1204.security.password'
+    compileSdk = 35
+
+    defaultConfig {
+        minSdk = 8
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk = 25
+        versionCode = 1
+        versionName = "1.0.0"
+        multiDexEnabled = false
+        proguardFiles += 'proguard-rules.pro'
+    }
+
+    signingConfigs {
+        android {
+            storeFile rootProject.file('android.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        configureEach {
+            signingConfig = signingConfigs.android
+        }
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+        }
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    lintOptions {
+        abortOnError = false
+    }
+
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">LockPassword Changer</string>
+    <string name="activity_name">Set password</string>
+    <string name="activity_desc">Set a PIN or string password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="please_enter_password">Please enter password here</string>
+    <string name="password_empty">To leave the password blank, select \"None\"</string>
+    <string name="password_less_than_4">Password must be at least 4 characters</string>
+    <string name="password_change_success">Successfully set of password</string>
+    <string name="password_change_failed">Failed set of password</string>
+    <string name="change">Set</string>
+    <string name="close">Close</string>
+    <string name="screenlock_password">Screen lock password</string>
+    <string name="please_enable_device_admin">Please enable device admin</string>
+    <string name="admin_request_message">\n\nPlease tap to \"Activate this device admin app\"\n\n</string>
+</resources>

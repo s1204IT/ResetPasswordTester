@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="activity_name">パスワードを変更</string>
+    <string name="activity_desc">PIN または文字列のパスワードを設定する</string>
+    <string name="enter_password">パスワードを入力</string>
+    <string name="please_enter_password">パスワードを入力してください</string>
+    <string name="password_empty">パスワードを空にするには、「なし」を選択してください</string>
+    <string name="password_less_than_4">パスワードは最低でも４文字必要です</string>
+    <string name="password_change_success">パスワードの変更に成功しました</string>
+    <string name="password_change_failed">パスワードの変更に失敗しました</string>
+    <string name="change">変更</string>
+    <string name="close">閉じる</string>
+    <string name="screenlock_password">画面ロックのパスワード</string>
+    <string name="please_enable_device_admin">端末管理者を有効にしてください</string>
+    <string name="admin_request_message">\n\n下記の｢この端末管理アプリを有効にする｣を押してください\n\n</string>
+</resources>
